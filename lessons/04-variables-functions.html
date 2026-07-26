@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>04 · 变量和函数</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="variables-functions" data-base="../"><aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+<header class="lesson-hero"><span class="lesson-kicker">第一章 · 代码基础 · 第 4 课</span><h1>变量和函数</h1><p>一个像有名字的收纳盒，一个像可以反复使用的小机器。理解这两个角色，你就能读懂大部分 JavaScript。</p><div class="lesson-meta"><span>◷ 约 22 分钟</span><span>JS 基础</span><span>⌨ 含函数练习</span></div></header>
+<section class="goal-card"><span>学完你会</span><h2>今天的 3 个小目标</h2><div class="goal-list"><div><strong>01</strong>用变量保存数据</div><div><strong>02</strong>看懂函数的输入与结果</div><div><strong>03</strong>调用一次函数</div></div></section>
+<section class="lesson-section" id="concept"><span class="section-index">01 · 变量</span><h2>给数据一个好找的名字</h2><p>变量不是高深数学，它只是把一个值放好，再贴上名字。以后需要这个值时，直接用名字，不用重复写。</p><div class="analogy"><span>🏷️</span><div><strong>像带标签的收纳盒</strong><p>盒子里放 20，外面写 minutes。以后说 minutes，电脑就知道你在说那个 20。</p></div></div>
+<div class="code-block"><div class="code-head"><span>app.jsx</span><button data-copy>复制</button></div><pre><code><span class="token-key">const</span> topic = <span class="token-string">"HTML"</span>;
+<span class="token-key">let</span> minutes = 20;
+minutes = 25;</code></pre></div>
+<div class="line-explain"><div><code>const</code><p>创建一个不打算重新装东西的盒子，例如学习主题。</p></div><div><code>let</code><p>创建一个之后可能更新的盒子，例如累计分钟。</p></div><div><code>=</code><p>这里不是“相等吗”，而是把右边的值放进左边的名字。</p></div></div></section>
+<section class="lesson-section" id="details"><span class="section-index">02 · 函数</span><h2>把一组步骤装进“小机器”</h2><p>函数可以接收原料，执行步骤，再给出结果。定义函数像制作机器，调用函数才是真的按下开关。</p>
+<div class="code-block"><div class="code-head"><span>app.jsx</span><button data-copy>复制</button></div><pre><code><span class="token-key">function</span> <span class="token-fn">makeMessage</span>(topic, minutes) {
+  <span class="token-key">return</span> <span class="token-string">`${topic} 学习了 ${minutes} 分钟`</span>;
+}
+
+<span class="token-key">const</span> result = <span class="token-fn">makeMessage</span>(<span class="token-string">"CSS"</span>, 30);</code></pre></div>
+<div class="line-explain"><div><code>makeMessage</code><p>函数名，最好用动作开头，让人一眼知道它做什么。</p></div><div><code>(topic, minutes)</code><p>两个输入位置，也叫参数。</p></div><div><code>return</code><p>把加工后的结果送出函数。</p></div><div><code>makeMessage(...)</code><p>真正调用函数，并交给它两个具体值。</p></div></div></section>
+<section class="lesson-section" id="errors"><span class="section-index">03 · 常见错误</span><h2>名字和调用最容易出错</h2><div class="mistake-list"><div class="mistake"><span>!</span><div><strong>用了还没创建的变量</strong><p>先写 <code>const name = "小林"</code>，后面才能使用 name。</p></div></div><div class="mistake"><span>!</span><div><strong>定义了函数却没调用</strong><p>只有 <code>function greet(){...}</code> 不会自动运行，还要写 <code>greet()</code>。</p></div></div><div class="mistake"><span>!</span><div><strong>参数顺序弄反</strong><p>函数期待 topic 在前、minutes 在后，调用时也要保持这个顺序。</p></div></div></div></section>
+<section class="lesson-section" id="practice"><span class="section-index">04 · 亲手试试</span><h2>给函数换一组原料</h2><div class="practice-brief"><span>你的任务</span><h3>生成属于你的学习记录</h3><ol><li>把 "JavaScript" 改成你正在学的主题。</li><li>把 20 改成你的学习时间。</li><li>运行后观察页面和控制台。</li></ol></div>
+<div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="js">JavaScript</button><button data-editor-tab="html">HTML</button><button data-editor-tab="css">CSS</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+<textarea class="playground-editor" data-lang="js">function makeMessage(topic, minutes) {
+  return `${topic} 学习了 ${minutes} 分钟`;
+}
+
+const message = makeMessage("JavaScript", 20);
+document.querySelector("#message").textContent = message;
+console.log(message);</textarea><textarea class="playground-editor" data-lang="html" hidden><div class="result"><small>今日记录</small><h1 id="message"></h1></div></textarea><textarea class="playground-editor" data-lang="css" hidden>.result { margin: 40px; padding: 24px; border-radius: 16px; background: #eaf1e8; }
+small { color: #657064; } h1 { color: #365d43; }</textarea>
+</div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>实时预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+<div class="lesson-quiz" data-answer="c"><span>本课小测</span><h3>哪一行是在“调用”函数？</h3><div class="quiz-options"><button data-choice="a">A. function greet(name) {</button><button data-choice="b">B. return `你好 ${name}`;</button><button data-choice="c">C. greet("小林");</button></div><p class="quiz-result"></p></div></section>
+<div class="lesson-complete-row"><p><strong>你已经读懂两个核心角色</strong><span>变量保存数据，函数处理事情。</span></p><button class="complete-lesson-button" data-complete-lesson>标记本课完成 <span>✓</span></button></div>
+<nav class="lesson-pagination"><a href="03-symbols.html"><b>←</b><span><small>上一课</small><strong>标签、括号和引号</strong></span></a><a href="05-errors.html"><span><small>下一课</small><strong>报错不可怕</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>本课内容</span><a class="is-active" href="#concept">变量</a><a href="#details">函数</a><a href="#errors">常见错误</a><a href="#practice">函数练习</a><div class="reading-time">⚙️ 不用背语法，先记住“盒子”和“小机器”。</div></aside></div></main></div><script type="text/javascript" src="../app.jsx"></script></body></html>

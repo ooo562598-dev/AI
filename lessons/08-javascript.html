@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>08 · JavaScript：回应操作</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="javascript" data-base="../"><aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+<header class="lesson-hero"><span class="lesson-kicker">第二章 · 网页三件套 · 第 8 课</span><h1>JavaScript：<br/>回应用户操作</h1><p>互动可以拆成三步：找到页面元素、等待某件事发生、改变页面。今天只走通这条最重要的路线。</p><div class="lesson-meta"><span>◷ 约 35 分钟</span><span>JS + DOM</span><span>⌨ 计数器练习</span></div></header>
+<section class="goal-card"><span>学完你会</span><h2>这章分成 3 个小节</h2><div class="goal-list"><div><strong>01 找到</strong>querySelector</div><div><strong>02 等待</strong>addEventListener</div><div><strong>03 改变</strong>textContent 与 class</div></div></section>
+<section class="lesson-section" id="concept"><span class="section-index">01 · 找到元素</span><h2>先告诉 JavaScript 要操作谁</h2><p>浏览器把 HTML 整理成一棵可以操作的树，叫 DOM。你不用背这个缩写，只需要知道：JavaScript 能用 CSS 选择器找到页面元素。</p><div class="analogy"><span>🎯</span><div><strong>像先拿到遥控器</strong><p>想换台之前要先找到电视；想改按钮之前，也要先找到那个按钮。</p></div></div>
+<div class="code-block"><div class="code-head"><span>app.jsx</span><button data-copy>复制</button></div><pre><code><span class="token-key">const</span> button = document.<span class="token-fn">querySelector</span>(<span class="token-string">"#checkButton"</span>);
+<span class="token-key">const</span> status = document.<span class="token-fn">querySelector</span>(<span class="token-string">"#status"</span>);</code></pre></div>
+<div class="line-explain"><div><code>document</code><p>当前网页这份文档。</p></div><div><code>querySelector</code><p>按照选择器寻找第一个符合的元素。</p></div><div><code>#status</code><p># 表示寻找 id="status" 的元素。</p></div></div></section>
+<section class="lesson-section" id="details"><span class="section-index">02 · 等待与改变</span><h2>点击发生时，执行一个函数</h2>
+<div class="code-block"><div class="code-head"><span>app.jsx</span><button data-copy>复制</button></div><pre><code>button.<span class="token-fn">addEventListener</span>(<span class="token-string">"click"</span>, () =&gt; {
+  status.textContent = <span class="token-string">"今天已完成"</span>;
+  button.classList.<span class="token-fn">add</span>(<span class="token-string">"is-done"</span>);
+});</code></pre></div>
+<div class="line-explain"><div><code>click</code><p>要等待的事件名称：用户点击。</p></div><div><code>() =&gt; {}</code><p>事件发生后要执行的函数。</p></div><div><code>textContent</code><p>把元素显示的文字换成新内容。</p></div><div><code>classList.add</code><p>给按钮添加一个 class，让 CSS 改变它的样子。</p></div></div></section>
+<section class="lesson-section" id="errors"><span class="section-index">03 · 常见错误</span><h2>为什么点击没有反应？</h2><div class="mistake-list"><div class="mistake"><span>!</span><div><strong>选择器和 HTML 对不上</strong><p>HTML 是 id="checkButton"，JavaScript 就要写 <code>#checkButton</code>。</p></div></div><div class="mistake"><span>!</span><div><strong>把函数提前调用了</strong><p>监听器需要函数本身，不要写成 <code>handleClick()</code>，否则加载时就运行。</p></div></div><div class="mistake"><span>!</span><div><strong>脚本运行得太早</strong><p>如果 HTML 还没出现就去找元素，会得到 null。把 script 放在 body 最后是简单做法。</p></div></div></div></section>
+<section class="lesson-section" id="practice"><span class="section-index">04 · 亲手互动</span><h2>做一个学习次数计数器</h2><div class="practice-brief"><span>你的任务</span><h3>每点击一次，数字增加 1</h3><ol><li>先运行并点击“完成一次”。</li><li>把每次增加的数字从 1 改成 2。</li><li>把达到目标的条件从 3 改成 5。</li></ol></div>
+<div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="js">JavaScript</button><button data-editor-tab="html">HTML</button><button data-editor-tab="css">CSS</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+<textarea class="playground-editor" data-lang="js">let count = 0;
+const number = document.querySelector("#count");
+const button = document.querySelector("#addButton");
+const tip = document.querySelector("#tip");
+
+button.addEventListener("click", () => {
+  count = count + 1;
+  number.textContent = count;
+  if (count >= 3) {
+    tip.textContent = "目标完成，做得好！";
+    button.classList.add("is-done");
+  }
+});</textarea><textarea class="playground-editor" data-lang="html" hidden><main class="counter"><small>今日练习</small><strong id="count">0</strong><p id="tip">完成 3 次小练习</p><button id="addButton">完成一次</button></main></textarea><textarea class="playground-editor" data-lang="css" hidden>.counter { width: 230px; margin: 36px auto; padding: 26px; text-align: center; background: #eef3e9; border-radius: 18px; }
+strong { display: block; margin: 14px; font-size: 52px; }
+button { padding: 10px 15px; border: 0; border-radius: 9px; background: #426c50; color: white; }
+button.is-done { background: #7567a8; }</textarea>
+</div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>可点击预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+<div class="lesson-quiz" data-answer="c"><span>本课小测</span><h3>点击按钮后要运行代码，应该监听哪个事件？</h3><div class="quiz-options"><button data-choice="a">A. color</button><button data-choice="b">B. textContent</button><button data-choice="c">C. click</button></div><p class="quiz-result"></p></div></section>
+<div class="lesson-complete-row"><p><strong>你的页面已经会回应用户了</strong><span>下一课把结构、样式和互动组合成作品。</span></p><button class="complete-lesson-button" data-complete-lesson>标记本课完成 <span>✓</span></button></div>
+<nav class="lesson-pagination"><a href="07-css.html"><b>←</b><span><small>上一课</small><strong>CSS：设计样子</strong></span></a><a href="09-project.html"><span><small>下一课</small><strong>综合项目：学习打卡卡片</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>本课内容</span><a class="is-active" href="#concept">找到元素</a><a href="#details">等待与改变</a><a href="#errors">常见错误</a><a href="#practice">计数器练习</a><div class="reading-time">🕹️ 互动不是魔法：找到、等待、改变。</div></aside></div></main></div><script type="text/javascript" src="../app.jsx"></script></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>03 · 标签、括号和引号</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="symbols" data-base="../"><aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+<header class="lesson-hero"><span class="lesson-kicker">第一章 · 代码基础 · 第 3 课</span><h1>标签、括号<br/>和引号</h1><p>这些符号不是装饰，它们像包装盒的边界：告诉电脑哪里开始、哪里结束、哪一段是文字。</p><div class="lesson-meta"><span>◷ 约 20 分钟</span><span>{ } 符号基础</span><span>⌨ 含修错练习</span></div></header>
+<section class="goal-card"><span>学完你会</span><h2>今天只认 3 类符号</h2><div class="goal-list"><div><strong>&lt; &gt;</strong>识别 HTML 标签</div><div><strong>( ) { }</strong>理解条件和代码范围</div><div><strong>" "</strong>知道引号包住文字</div></div></section>
+<section class="lesson-section" id="concept"><span class="section-index">01 · 标签</span><h2>标签像成对的收纳盒</h2><p><code>&lt;p&gt;</code> 是开始标签，<code>&lt;/p&gt;</code> 是结束标签，中间放段落文字。斜杠 <strong>/</strong> 表示“到这里结束”。</p><div class="analogy"><span>📦</span><div><strong>盒子外面有名字</strong><p>写着“书”的盒子里放书；写着 p 的标签里放段落。标签名帮助浏览器理解内容。</p></div></div>
+<div class="code-block"><div class="code-head"><span>index.html</span><button data-copy>复制</button></div><pre><code>&lt;<span class="token-tag">article</span>&gt;
+  &lt;<span class="token-tag">h1</span>&gt;今日计划&lt;/<span class="token-tag">h1</span>&gt;
+  &lt;<span class="token-tag">p</span>&gt;学习 20 分钟&lt;/<span class="token-tag">p</span>&gt;
+&lt;/<span class="token-tag">article</span>&gt;</code></pre></div>
+<div class="line-explain"><div><code>&lt;article&gt;</code><p>打开一个内容区域，里面可以继续放标题和段落。</p></div><div><code>&lt;h1&gt;</code><p>开始一个一级标题；后面的 <code>&lt;/h1&gt;</code> 把它关上。</p></div><div><code>缩进</code><p>标题和段落向右缩进，表示它们住在 article 里面。</p></div></div></section>
+<section class="lesson-section" id="details"><span class="section-index">02 · 括号与引号</span><h2>括号划范围，引号包文字</h2><p>圆括号 <strong>( )</strong> 常放条件或传给函数的内容；花括号 <strong>{ }</strong> 包住一组要执行的代码；引号告诉电脑“这里是普通文字”。</p>
+<div class="code-block"><div class="code-head"><span>app.jsx</span><button data-copy>复制</button></div><pre><code><span class="token-key">if</span> (taskDone) {
+  console.<span class="token-fn">log</span>(<span class="token-string">"今天完成啦"</span>);
+}</code></pre></div>
+<div class="line-explain"><div><code>(taskDone)</code><p>圆括号中是要检查的条件。</p></div><div><code>{ ... }</code><p>花括号中是条件成立后执行的一组步骤。</p></div><div><code>"今天…"</code><p>引号包住需要原样显示的文字，引号本身不会显示。</p></div></div></section>
+<section class="lesson-section" id="errors"><span class="section-index">03 · 常见错误</span><h2>符号通常要成对</h2><div class="mistake-list"><div class="mistake"><span>!</span><div><strong>忘记结束标签</strong><p><code>&lt;p&gt;文字</code> 少了 <code>&lt;/p&gt;</code>，后面的内容可能被一起装进段落。</p></div></div><div class="mistake"><span>!</span><div><strong>混用不同引号</strong><p><code>"你好'</code> 一边双引号一边单引号，不是一对。</p></div></div><div class="mistake"><span>!</span><div><strong>右括号缺席</strong><p>编辑器常会高亮对应括号。点击左括号，看看它的搭档在哪里。</p></div></div></div></section>
+<section class="lesson-section" id="practice"><span class="section-index">04 · 修好它</span><h2>补上缺少的标签</h2><div class="practice-brief"><span>你的任务</span><h3>让两句话各自成为段落</h3><ol><li>HTML 中第二个 p 标签少了斜杠。</li><li>把最后的 <code>&lt;p&gt;</code> 改成 <code>&lt;/p&gt;</code>。</li><li>运行并观察结构恢复正常。</li></ol></div>
+<div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="html">HTML</button><button data-editor-tab="css">CSS</button><button data-editor-tab="js">JavaScript</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+<textarea class="playground-editor" data-lang="html"><section class="card">
+  <h1>我的计划</h1>
+  <p>先读懂标签<p>
+  <p>再动手修改</p>
+</section></textarea><textarea class="playground-editor" data-lang="css" hidden>.card { margin: 36px; padding: 22px; border: 2px solid #b8cab9; border-radius: 16px; }
+h1 { color: #426c50; }</textarea><textarea class="playground-editor" data-lang="js" hidden>console.log("标签练习已运行");</textarea>
+</div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>实时预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+<div class="lesson-quiz" data-answer="a"><span>本课小测</span><h3>哪一个是完整、成对的段落标签？</h3><div class="quiz-options"><button data-choice="a">A. &lt;p&gt;你好&lt;/p&gt;</button><button data-choice="b">B. &lt;p&gt;你好&lt;p&gt;</button><button data-choice="c">C. "p"你好"/p"</button></div><p class="quiz-result"></p></div></section>
+<div class="lesson-complete-row"><p><strong>你已经能看懂代码边界了</strong><span>遇到符号先找它的另一半。</span></p><button class="complete-lesson-button" data-complete-lesson>标记本课完成 <span>✓</span></button></div>
+<nav class="lesson-pagination"><a href="02-file-structure.html"><b>←</b><span><small>上一课</small><strong>文件放在哪里？</strong></span></a><a href="04-variables-functions.html"><span><small>下一课</small><strong>变量和函数</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>本课内容</span><a class="is-active" href="#concept">HTML 标签</a><a href="#details">括号与引号</a><a href="#errors">常见错误</a><a href="#practice">修错练习</a><div class="reading-time">🧩 报错经常只是少了一个符号，不代表你不会编程。</div></aside></div></main></div><script type="text/javascript" src="../app.jsx"></script></body></html>

@@ -1,0 +1,38 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>07 · CSS：设计样子</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="css" data-base="../"><aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+<header class="lesson-hero"><span class="lesson-kicker">第二章 · 网页三件套 · 第 7 课</span><h1>CSS：<br/>设计页面样子</h1><p>CSS 不是堆效果。先用选择器找到元素，再调整盒子、颜色和排列，就能做出清楚舒服的界面。</p><div class="lesson-meta"><span>◷ 约 35 分钟</span><span>✦ CSS</span><span>⌨ 样式练习</span></div></header>
+<section class="goal-card"><span>学完你会</span><h2>这章分成 3 个小节</h2><div class="goal-list"><div><strong>01 规则</strong>选择器与属性</div><div><strong>02 盒子</strong>内容、内边距、边框</div><div><strong>03 布局</strong>使用 Flex 排列</div></div></section>
+<section class="lesson-section" id="concept"><span class="section-index">01 · CSS 规则</span><h2>找到谁，再改变什么</h2><p>一条 CSS 规则由<strong>选择器</strong>和花括号里的<strong>属性</strong>组成。选择器说“改谁”，属性说“改什么”。</p><div class="analogy"><span>🎨</span><div><strong>像给房间下装修单</strong><p>“把客厅的墙刷成绿色”：客厅是选择器，墙面颜色是属性，绿色是属性值。</p></div></div>
+<div class="code-block"><div class="code-head"><span>styles.css</span><button data-copy>复制</button></div><pre><code><span class="token-tag">.card</span> {
+  <span class="token-attr">background</span>: <span class="token-string">#eef4ea</span>;
+  <span class="token-attr">color</span>: <span class="token-string">#203025</span>;
+  <span class="token-attr">border-radius</span>: <span class="token-string">16px</span>;
+}</code></pre></div>
+<div class="line-explain"><div><code>.card</code><p>点号表示寻找 class="card" 的元素。</p></div><div><code>background</code><p>改变背景颜色。</p></div><div><code>color</code><p>改变文字颜色。</p></div><div><code>16px</code><p>px 是像素单位，这里让四角变圆。</p></div></div></section>
+<section class="lesson-section" id="details"><span class="section-index">02 · 盒模型与布局</span><h2>每个元素都像一个盒子</h2><p>内容外面依次是 <strong>padding 内边距</strong>、border 边框、margin 外边距。文字挤在边缘时，通常要加 padding；两个盒子太靠近时，用 margin 或 gap。</p>
+<div class="code-block"><div class="code-head"><span>Flex 布局</span><button data-copy>复制</button></div><pre><code><span class="token-tag">.actions</span> {
+  <span class="token-attr">display</span>: <span class="token-string">flex</span>;
+  <span class="token-attr">align-items</span>: <span class="token-string">center</span>;
+  <span class="token-attr">gap</span>: <span class="token-string">12px</span>;
+}</code></pre></div>
+<p>display: flex 让子元素排成一行；align-items: center 让它们垂直居中；gap 负责它们之间的空隙。</p></section>
+<section class="lesson-section" id="errors"><span class="section-index">03 · 常见错误</span><h2>规则写了却没变化？</h2><div class="mistake-list"><div class="mistake"><span>!</span><div><strong>选择器没有选中元素</strong><p>HTML 是 class="card"，CSS 就要写 <code>.card</code>；少了点号会选中名为 card 的标签。</p></div></div><div class="mistake"><span>!</span><div><strong>少了单位</strong><p><code>padding: 20</code> 通常无效，应写 <code>20px</code>。</p></div></div><div class="mistake"><span>!</span><div><strong>被后面的规则覆盖</strong><p>同样重要时，后写的规则会生效。打开浏览器检查工具能看到被划掉的属性。</p></div></div></div></section>
+<section class="lesson-section" id="practice"><span class="section-index">04 · 亲手设计</span><h2>给学习卡片换一套视觉</h2><div class="practice-brief"><span>你的任务</span><h3>改变颜色、圆角和间距</h3><ol><li>把 background 换成喜欢的浅色。</li><li>把 border-radius 从 18px 改成 4px。</li><li>给 .card 增加或减少 padding，比较呼吸感。</li></ol></div>
+<div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="css">CSS</button><button data-editor-tab="html">HTML</button><button data-editor-tab="js">JavaScript</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+<textarea class="playground-editor" data-lang="css">body { background: #f5f6f2; }
+.card {
+  width: 280px;
+  margin: 36px auto;
+  padding: 26px;
+  border-radius: 18px;
+  background: #e7f0e8;
+  box-shadow: 0 16px 35px rgba(45, 70, 50, .12);
+}
+.actions { display: flex; gap: 10px; }
+button { padding: 9px 13px; border: 0; border-radius: 9px; background: #426c50; color: white; }</textarea><textarea class="playground-editor" data-lang="html" hidden><article class="card"><small>今日目标</small><h1>学习 CSS</h1><p>先让内容清楚，再追求特别。</p><div class="actions"><button>完成</button><a href="#">稍后继续</a></div></article></textarea><textarea class="playground-editor" data-lang="js" hidden>console.log("卡片样式已加载");</textarea>
+</div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>实时预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+<div class="lesson-quiz" data-answer="a"><span>本课小测</span><h3>文字贴着卡片边缘，应该优先增加什么？</h3><div class="quiz-options"><button data-choice="a">A. padding</button><button data-choice="b">B. color</button><button data-choice="c">C. font-weight</button></div><p class="quiz-result"></p></div></section>
+<div class="lesson-complete-row"><p><strong>你能控制网页的视觉了</strong><span>下一课让按钮真正回应点击。</span></p><button class="complete-lesson-button" data-complete-lesson>标记本课完成 <span>✓</span></button></div>
+<nav class="lesson-pagination"><a href="06-html.html"><b>←</b><span><small>上一课</small><strong>HTML：安排内容</strong></span></a><a href="08-javascript.html"><span><small>下一课</small><strong>JavaScript：回应操作</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>本课内容</span><a class="is-active" href="#concept">CSS 规则</a><a href="#details">盒模型与 Flex</a><a href="#errors">常见错误</a><a href="#practice">样式练习</a><div class="reading-time">🎨 好看的起点不是装饰多，而是层级清楚、间距舒服。</div></aside></div></main></div><script type="text/javascript" src="../app.jsx"></script></body></html>

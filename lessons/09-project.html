@@ -1,0 +1,68 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>09 · 项目：学习打卡卡片</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="project" data-base="../"><aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+<header class="lesson-hero"><span class="lesson-kicker">第三章 · 综合项目 · 第 9 课</span><h1>做一张<br/>学习打卡卡片</h1><p>这次不再学习一个孤立概念。我们把 HTML 结构、CSS 样式和 JavaScript 互动拼成一个真正能使用的小作品。</p><div class="lesson-meta"><span>◷ 约 45 分钟</span><span>★ 综合项目</span><span>⌨ 完整代码</span></div></header>
+<section class="goal-card"><span>最终成果</span><h2>你会完成一个可互动作品</h2><div class="goal-list"><div><strong>01 结构</strong>卡片、标题、进度和按钮</div><div><strong>02 视觉</strong>层级、间距、圆角与状态</div><div><strong>03 互动</strong>点击打卡并更新连续天数</div></div></section>
+<section class="lesson-section" id="concept"><span class="section-index">01 · 先拆需求</span><h2>不要一上来就写代码</h2><p>先把想做的东西写成小清单：显示学习主题、显示连续天数、显示一周状态、点击按钮后完成今天。这四条就是开发路线。</p><div class="analogy"><span>🗺️</span><div><strong>先画地图，再开始走</strong><p>每完成一项就验证一次。HTML 完成时先看内容，CSS 完成时看布局，最后才连接点击。</p></div></div>
+<div class="code-block"><div class="code-head"><span>项目结构</span><button data-copy>复制</button></div><pre><code>&lt;<span class="token-tag">article</span> <span class="token-attr">class</span>=<span class="token-string">"check-card"</span>&gt;
+  &lt;<span class="token-tag">header</span>&gt;...主题和天数...&lt;/<span class="token-tag">header</span>&gt;
+  &lt;<span class="token-tag">div</span> <span class="token-attr">class</span>=<span class="token-string">"week"</span>&gt;...一周状态...&lt;/<span class="token-tag">div</span>&gt;
+  &lt;<span class="token-tag">button</span> <span class="token-attr">id</span>=<span class="token-string">"checkButton"</span>&gt;完成今日打卡&lt;/<span class="token-tag">button</span>&gt;
+&lt;/<span class="token-tag">article</span>&gt;</code></pre></div>
+<div class="line-explain"><div><code>article</code><p>把完整、独立的一张学习卡片包起来。</p></div><div><code>header</code><p>放卡片最重要的主题和连续天数。</p></div><div><code>.week</code><p>一组相同的星期状态，CSS 会用 Flex 排列。</p></div><div><code>#checkButton</code><p>唯一 id 方便 JavaScript 精确找到按钮。</p></div></div></section>
+<section class="lesson-section" id="details"><span class="section-index">02 · 逐步组合</span><h2>状态由 JavaScript 保存和更新</h2>
+<div class="code-block"><div class="code-head"><span>核心互动</span><button data-copy>复制</button></div><pre><code><span class="token-key">let</span> days = 6;
+button.<span class="token-fn">addEventListener</span>(<span class="token-string">"click"</span>, () =&gt; {
+  days = days + 1;
+  dayText.textContent = <span class="token-string">`连续学习 ${days} 天`</span>;
+  button.textContent = <span class="token-string">"✓ 今天已打卡"</span>;
+  button.classList.<span class="token-fn">add</span>(<span class="token-string">"is-done"</span>);
+});</code></pre></div>
+<p>变量 days 保存当前天数；点击时先加 1，再更新文字和按钮状态。这个小项目没有后端，所以刷新页面会恢复初始值——这是正常的，未来可以用 localStorage 或数据库保存。</p></section>
+<section class="lesson-section" id="errors"><span class="section-index">03 · 项目检查</span><h2>按层排查，不要混在一起</h2><div class="mistake-list"><div class="mistake"><span>H</span><div><strong>内容缺失：先查 HTML</strong><p>标签是否闭合？id 与 class 是否写在正确元素上？</p></div></div><div class="mistake"><span>C</span><div><strong>样式不对：再查 CSS</strong><p>选择器有没有选中？单位和分号是否完整？</p></div></div><div class="mistake"><span>J</span><div><strong>点击无效：最后查 JavaScript</strong><p>元素是否找到？事件名是否为 click？控制台有没有错误？</p></div></div></div></section>
+<section class="lesson-section" id="practice"><span class="section-index">04 · 完整项目</span><h2>现在轮到你来改</h2><div class="practice-brief"><span>挑战任务</span><h3>至少完成下面 3 项中的 2 项</h3><ol><li>把学习主题换成你真实在学的内容。</li><li>修改卡片主色和背景色。</li><li>把初始连续天数改成自己的数字，然后完成一次打卡。</li></ol></div>
+<div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="html">HTML</button><button data-editor-tab="css">CSS</button><button data-editor-tab="js">JavaScript</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+<textarea class="playground-editor" data-lang="html"><main class="page">
+  <article class="check-card">
+    <span class="eyebrow">今日学习</span>
+    <h1 id="dayText">连续学习 6 天</h1>
+    <p>JavaScript · 事件与状态</p>
+    <div class="week">
+      <i class="done">一</i><i class="done">二</i><i class="done">三</i>
+      <i class="done">四</i><i class="done">五</i><i class="done">六</i><i>日</i>
+    </div>
+    <button id="checkButton">完成今日打卡</button>
+    <small id="message">每天一点点，也很了不起。</small>
+  </article>
+</main></textarea><textarea class="playground-editor" data-lang="css" hidden>* { box-sizing: border-box; }
+.page { min-height: 100vh; padding: 38px 20px; background: #edf1e9; }
+.check-card { max-width: 330px; margin: auto; padding: 28px; border-radius: 22px; background: white; box-shadow: 0 20px 45px rgba(48,70,49,.12); }
+.eyebrow { color: #52715a; font-size: 11px; font-weight: bold; letter-spacing: .1em; }
+h1 { margin: 12px 0 7px; font-size: 26px; }
+p, small { color: #7b8378; }
+.week { margin: 24px 0; display: flex; gap: 7px; }
+.week i { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #eef0eb; color: #899084; font-size: 11px; font-style: normal; }
+.week i.done { background: #52715a; color: white; }
+button { width: 100%; padding: 12px; border: 0; border-radius: 11px; background: #1e271f; color: white; cursor: pointer; }
+button.is-done { background: #52715a; }
+small { display: block; margin-top: 13px; text-align: center; font-size: 10px; }</textarea><textarea class="playground-editor" data-lang="js" hidden>let days = 6;
+const button = document.querySelector("#checkButton");
+const dayText = document.querySelector("#dayText");
+const message = document.querySelector("#message");
+const lastDay = document.querySelector(".week i:last-child");
+
+button.addEventListener("click", () => {
+  if (button.classList.contains("is-done")) return;
+  days = days + 1;
+  dayText.textContent = `连续学习 ${days} 天`;
+  lastDay.classList.add("done");
+  button.textContent = "✓ 今天已打卡";
+  button.classList.add("is-done");
+  message.textContent = "打卡成功！明天继续慢慢来。";
+  console.log(`连续天数更新为：${days}`);
+});</textarea>
+</div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>完整作品预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+<div class="lesson-quiz" data-answer="b" data-success="答对了！你已经能按层理解一个完整网页项目。"><span>最终小测</span><h3>按钮能显示但点击没反应，应该优先检查哪一层？</h3><div class="quiz-options"><button data-choice="a">A. HTML 内容层</button><button data-choice="b">B. JavaScript 互动层</button><button data-choice="c">C. CSS 样式层</button></div><p class="quiz-result"></p></div></section>
+<div class="lesson-complete-row"><p><strong>你完成了第一个完整网页作品</strong><span>你已经会读、会改、会运行，也知道出错时怎么找。</span></p><button class="complete-lesson-button" data-complete-lesson>完成整套课程 <span>★</span></button></div>
+<nav class="lesson-pagination"><a href="08-javascript.html"><b>←</b><span><small>上一课</small><strong>JavaScript：回应操作</strong></span></a><a href="../index.html"><span><small>回到</small><strong>课程首页查看进度</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>项目步骤</span><a class="is-active" href="#concept">拆解需求</a><a href="#details">组合互动</a><a href="#errors">项目排查</a><a href="#practice">完整项目</a><div class="reading-time">🚀 能让别人打开并使用，就是一个真正的作品。</div></aside></div></main></div><script type="text/javascript" src="../app.jsx"></script></body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>02 · 文件放在哪里？</title><link rel="stylesheet" href="../styles.css"/></head>
+<body class="course-body" data-page="file-structure" data-base="../">
+<aside class="course-sidebar" id="courseSidebar"></aside><div class="course-shell"><header class="course-topbar" id="courseTopbar"></header>
+<main class="lesson-main"><div class="lesson-grid"><article class="lesson-content">
+  <header class="lesson-hero"><span class="lesson-kicker">第一章 · 代码基础 · 第 2 课</span><h1>文件应该<br/>放在哪里？</h1><p>项目文件夹就像一个整理好的书包。知道每本“课本”放在哪，你就不会面对一堆文件发慌。</p><div class="lesson-meta"><span>◷ 约 18 分钟</span><span>▤ 文件结构</span><span>⌨ 含运行练习</span></div></header>
+  <section class="goal-card"><span>学完你会</span><h2>今天的 3 个小目标</h2><div class="goal-list"><div><strong>01</strong>认出项目根目录</div><div><strong>02</strong>分清 HTML、CSS、JS 文件</div><div><strong>03</strong>知道相对路径是什么意思</div></div></section>
+  <section class="lesson-section" id="concept"><span class="section-index">01 · 项目文件夹</span><h2>先找到装全部文件的“大盒子”</h2><p>一个网站项目通常有一个最外层文件夹，叫做<strong>项目根目录</strong>。这里的“根”就是起点，不是难懂的新功能。</p><div class="analogy"><span>🎒</span><div><strong>像整理书包</strong><p>课本放主体内容，彩笔负责装饰，遥控器负责动作。文件名不同，是为了让人容易找到职责。</p></div></div>
+    <div class="code-block"><div class="code-head"><span>my-first-site/</span><button data-copy>复制</button></div><pre><code>my-first-site/
+├── index.html      <span class="token-comment"># 页面内容</span>
+├── styles.css      <span class="token-comment"># 页面样式</span>
+├── app.jsx         <span class="token-comment"># 页面互动</span>
+└── images/
+    └── avatar.png  <span class="token-comment"># 图片素材</span></code></pre></div>
+    <div class="line-explain"><div><code>index.html</code><p>通常是浏览器最先打开的首页文件。</p></div><div><code>styles.css</code><p>集中放颜色、大小、间距、布局等视觉规则。</p></div><div><code>app.jsx</code><p>放点击、输入、计算等需要执行的步骤。</p></div><div><code>images/</code><p>文件夹可以继续装文件，避免根目录太乱。</p></div></div>
+  </section>
+  <section class="lesson-section" id="details"><span class="section-index">02 · 文件如何连接</span><h2>HTML 是集合点</h2><p>浏览器先打开 HTML，再由 HTML 告诉它去哪里找 CSS 和 JavaScript。这个“去哪里找”的文字就是<strong>路径</strong>。</p>
+    <div class="code-block"><div class="code-head"><span>index.html</span><button data-copy>复制</button></div><pre><code>&lt;<span class="token-tag">link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"styles.css"</span>&gt;
+&lt;<span class="token-tag">script</span> <span class="token-attr">src</span>=<span class="token-string">"app.jsx"</span>&gt;&lt;/<span class="token-tag">script</span>&gt;</code></pre></div>
+    <p><strong>同一文件夹里</strong>，直接写文件名就够了。进入子文件夹写 <code>images/avatar.png</code>；返回上一层写 <code>../styles.css</code>。</p>
+  </section>
+  <section class="lesson-section" id="errors"><span class="section-index">03 · 常见错误</span><h2>为什么文件明明在，却找不到？</h2><div class="mistake-list"><div class="mistake"><span>!</span><div><strong>文件名大小写不一致</strong><p><code>Styles.css</code> 和 <code>styles.css</code> 在很多服务器上不是同一个文件。</p></div></div><div class="mistake"><span>!</span><div><strong>少写了一层文件夹</strong><p>图片放在 images 里，路径就应该包含 <code>images/</code>。</p></div></div><div class="mistake"><span>!</span><div><strong>扩展名被隐藏</strong><p>看似 index.html 的文件可能实际叫 index.html.txt。打开系统的“显示文件扩展名”更安全。</p></div></div></div></section>
+  <section class="lesson-section" id="practice"><span class="section-index">04 · 亲手试试</span><h2>让三个文件合作</h2><div class="practice-brief"><span>你的任务</span><h3>改 CSS 中的背景色</h3><ol><li>切换到 CSS 标签。</li><li>把 #eef4ea 改成 #fff0dc。</li><li>点击运行，确认 HTML 内容没有改变，只是样式变了。</li></ol></div>
+    <div class="code-playground"><div class="playground-bar"><div class="editor-tabs"><button class="is-active" data-editor-tab="html">index.html</button><button data-editor-tab="css">styles.css</button><button data-editor-tab="js">app.jsx</button></div><div class="playground-actions"><button data-reset>恢复初始</button><button data-run>运行代码 <span>▶</span></button></div></div><div class="playground-workspace"><div class="editor-pane">
+      <textarea class="playground-editor" data-lang="html"><article class="note">
+  <h1>文件整理好了</h1>
+  <p>现在我知道去哪里修改内容。</p>
+  <button id="hello">点我</button>
+</article></textarea>
+      <textarea class="playground-editor" data-lang="css" hidden>.note { margin: 35px; padding: 24px; border-radius: 16px; background: #eef4ea; }
+button { padding: 8px 14px; border: 0; border-radius: 8px; }</textarea>
+      <textarea class="playground-editor" data-lang="js" hidden>document.querySelector("#hello").addEventListener("click", () => {
+  alert("三个文件连接成功！");
+});</textarea>
+    </div><div class="preview-pane"><div class="preview-label"><span>运行结果</span><em>实时预览</em></div><iframe title="代码运行结果" sandbox="allow-scripts"></iframe><div class="console-output"></div></div></div></div>
+    <div class="lesson-quiz" data-answer="c"><span>本课小测</span><h3>图片在 images 文件夹里，HTML 在根目录，正确路径是？</h3><div class="quiz-options"><button data-choice="a">A. avatar.png</button><button data-choice="b">B. ../avatar.png</button><button data-choice="c">C. images/avatar.png</button></div><p class="quiz-result"></p></div>
+  </section>
+  <div class="lesson-complete-row"><p><strong>你的项目不再是一团文件了</strong><span>知道职责和路径，就能大胆寻找。</span></p><button class="complete-lesson-button" data-complete-lesson>标记本课完成 <span>✓</span></button></div>
+  <nav class="lesson-pagination"><a href="01-reading-code.html"><b>←</b><span><small>上一课</small><strong>代码应该怎么读？</strong></span></a><a href="03-symbols.html"><span><small>下一课</small><strong>标签、括号和引号</strong></span><b>→</b></a></nav>
+</article><aside class="on-page-nav"><span>本课内容</span><a class="is-active" href="#concept">项目文件夹</a><a href="#details">文件如何连接</a><a href="#errors">路径错误</a><a href="#practice">运行练习</a><div class="reading-time">📁 文件名是给未来的自己看的，清楚比炫酷重要。</div></aside></div></main>
+</div><script type="text/javascript" src="../app.jsx"></script></body></html>

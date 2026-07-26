@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7f4" />
+  <meta name="description" content="面向完全零基础学习者的 AI 开发课程。从读懂代码开始，边学、边改、边运行。" />
+  <title>从零开始 · AI 开发课程</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="course-body" data-page="home" data-base="./">
+  <aside class="course-sidebar" id="courseSidebar"></aside>
+  <div class="course-shell">
+    <header class="course-topbar" id="courseTopbar"></header>
+    <main class="dashboard-main">
+      <section class="dashboard-hero">
+        <div class="hero-copy">
+          <div class="soft-label"><span></span> 完全零基础也能开始</div>
+          <h1>不是背代码。<br /><em>是学会把想法做出来。</em></h1>
+          <p>这里不会默认你懂任何东西。先学会看懂代码，再亲手改动、运行、看到结果。每课只前进一小步。</p>
+          <div class="hero-cta-row">
+            <a class="button button-primary" href="lessons/01-reading-code.html">从第 1 课开始 <span>→</span></a>
+            <a class="button button-quiet" href="#curriculum">先看看课程 <span>↓</span></a>
+          </div>
+          <div class="learner-note"><span class="note-face">:)</span><p><strong>今天只学 15 分钟也很好。</strong><br />不赶进度，能说出“我刚刚改了什么”就算学会。</p></div>
+        </div>
+        <div class="hero-workbench" aria-label="代码学习示意">
+          <div class="workbench-top"><span></span><span></span><span></span><em>第一次读代码</em></div>
+          <div class="workbench-body">
+            <div class="mini-files"><span class="is-active">index.html</span><span>styles.css</span><span>app.jsx</span></div>
+            <div class="mini-code"><i>1</i><code>&lt;h1&gt;<b>今天也在进步</b>&lt;/h1&gt;</code><i>2</i><code>&lt;p&gt;先改一行，再看结果。&lt;/p&gt;</code><i>3</i><code>&lt;button&gt;<mark>完成打卡</mark>&lt;/button&gt;</code></div>
+            <div class="mini-result"><small>运行结果</small><div><strong>今天也在进步</strong><p>先改一行，再看结果。</p><button>完成打卡</button></div></div>
+          </div>
+          <div class="floating-tip tip-one">改完点「运行」</div><div class="floating-tip tip-two">结果就在右边 ✨</div>
+        </div>
+      </section>
+
+      <section class="dashboard-progress" aria-labelledby="progress-title">
+        <div><span class="section-eyebrow">你的学习进度</span><h2 id="progress-title">慢慢来，也是在向前。</h2></div>
+        <div class="progress-summary"><div class="progress-ring" id="homeProgressRing"><strong id="homeProgressNumber">0%</strong></div><p><strong id="homeCompletedText">还没有完成课程</strong><span>完成小测后会自动记录</span></p><a href="lessons/01-reading-code.html" id="continueLink">开始学习 →</a></div>
+      </section>
+
+      <section class="learning-rules" aria-label="学习方式">
+        <article><span class="rule-icon">01</span><div><h3>先看懂</h3><p>用生活化比喻认识一个概念，不急着记术语。</p></div></article>
+        <article><span class="rule-icon">02</span><div><h3>再动手</h3><p>每课都有代码区，改一改，点击运行，马上看结果。</p></div></article>
+        <article><span class="rule-icon">03</span><div><h3>最后确认</h3><p>小测不是考试，只帮你确认能不能继续下一小步。</p></div></article>
+      </section>
+
+      <section class="curriculum-section" id="curriculum">
+        <div class="section-heading"><div><span class="section-eyebrow">课程目录</span><h2>3 章 · 9 课 · 1 个完整作品</h2></div><p>每一课都有明确的开始和结束。<br />你随时知道自己在哪、下一步去哪里。</p></div>
+        <div class="chapter-block">
+          <header><span class="chapter-number">01</span><div><small>第一章 · 代码基础</small><h3>先学会读，再学会写</h3></div><em>5 课</em></header>
+          <div class="course-card-grid">
+            <a class="course-card featured" href="lessons/01-reading-code.html" data-course-card="reading-code"><span class="card-status">建议从这里开始</span><strong>01</strong><h4>代码应该怎么读？</h4><p>顺序、缩进、注释：像读菜谱一样读代码。</p><small>约 15 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/02-file-structure.html" data-course-card="file-structure"><strong>02</strong><h4>文件放在哪里？</h4><p>认识项目文件夹和三个最常用文件。</p><small>约 18 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/03-symbols.html" data-course-card="symbols"><strong>03</strong><h4>标签、括号和引号</h4><p>看懂代码里反复出现的小符号。</p><small>约 20 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/04-variables-functions.html" data-course-card="variables-functions"><strong>04</strong><h4>变量和函数</h4><p>一个负责装东西，一个负责做事情。</p><small>约 22 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/05-errors.html" data-course-card="errors"><strong>05</strong><h4>报错不可怕</h4><p>学会从报错信息里找到真正的线索。</p><small>约 20 分钟 <b>→</b></small></a>
+          </div>
+        </div>
+        <div class="chapter-block">
+          <header><span class="chapter-number violet">02</span><div><small>第二章 · 网页三件套</small><h3>结构、样式和互动</h3></div><em>3 课</em></header>
+          <div class="course-card-grid three-grid">
+            <a class="course-card" href="lessons/06-html.html" data-course-card="html"><strong>06</strong><h4>HTML：安排内容</h4><p>标题、段落、图片、按钮和表单。</p><small>约 30 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/07-css.html" data-course-card="css"><strong>07</strong><h4>CSS：设计样子</h4><p>颜色、间距、盒子和弹性布局。</p><small>约 35 分钟 <b>→</b></small></a>
+            <a class="course-card" href="lessons/08-javascript.html" data-course-card="javascript"><strong>08</strong><h4>JavaScript：回应操作</h4><p>找到元素、监听点击、改变页面。</p><small>约 35 分钟 <b>→</b></small></a>
+          </div>
+        </div>
+        <div class="chapter-block project-chapter">
+          <header><span class="chapter-number coral">03</span><div><small>第三章 · 综合项目</small><h3>把学过的东西拼在一起</h3></div><em>1 个作品</em></header>
+          <a class="project-card" href="lessons/09-project.html" data-course-card="project"><div><span class="project-badge">最终项目</span><h3>做一张“学习打卡卡片”</h3><p>从空白开始，完成卡片结构、视觉样式和打卡互动。最后得到一个真正能用的小网页。</p><ul><li>HTML 结构</li><li>CSS 样式</li><li>JavaScript 互动</li></ul><span class="project-link">开始做项目 →</span></div><div class="project-preview" aria-hidden="true"><small>今日学习</small><strong>连续学习 7 天</strong><span>HTML 基础</span><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button>✓ 今天已打卡</button></div></a>
+        </div>
+      </section>
+      <footer class="dashboard-footer"><span>从零开始 · AI 开发课程</span><p>不默认你懂任何东西，每一步都说清楚。</p></footer>
+    </main>
+  </div>
+  <script type="text/javascript" src="app.jsx"></script>
+</body>
+</html>
